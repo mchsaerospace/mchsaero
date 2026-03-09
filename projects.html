@@ -8,97 +8,93 @@
   <style>
     .filter-bar {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
       flex-wrap: wrap;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
     .filter-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.45rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
       border: 1px solid var(--border);
       background: transparent;
       color: var(--text-mid);
-      border-radius: 6px;
+      border-radius: 980px;
       cursor: pointer;
       transition: all 0.15s;
     }
 
     .filter-btn:hover,
     .filter-btn.active {
-      background: var(--accent);
+      background: var(--blue);
       color: #fff;
-      border-color: var(--accent);
+      border-color: var(--blue);
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 10px;
     }
 
     .project-card {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
       transition: border-color 0.2s, transform 0.2s;
     }
 
-    .project-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+    .project-card:hover { border-color: var(--border2); transform: translateY(-2px); }
 
-    .project-image {
+    .project-thumb {
       background: var(--bg3);
-      height: 180px;
+      height: 160px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      font-size: 3.5rem;
       border-bottom: 1px solid var(--border);
       position: relative;
     }
 
     .project-status {
       position: absolute;
-      top: 1rem;
-      right: 1rem;
+      top: 0.8rem;
+      right: 0.8rem;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.58rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
+      padding: 0.2rem 0.5rem;
       border-radius: 4px;
       border: 1px solid;
     }
 
-    .status-active { color: var(--green); border-color: var(--green); background: rgba(34,197,94,0.08); }
-    .status-complete { color: var(--text-dim); border-color: var(--border); }
-    .status-planning { color: var(--gold); border-color: var(--gold); background: rgba(245,158,11,0.08); }
+    .status-complete { color: var(--green); border-color: var(--green); background: rgba(48,209,88,0.08); }
+    .status-active   { color: var(--blue);  border-color: var(--blue);  background: rgba(41,151,255,0.08); }
 
-    .project-body { padding: 1.8rem; }
+    .project-body { padding: 1.6rem; }
 
     .project-division {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
+      color: var(--blue);
+      margin-bottom: 0.4rem;
     }
 
-    .project-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
-    .project-card p { font-size: 0.87rem; color: var(--text-mid); margin-bottom: 1.2rem; }
+    .project-card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .project-card p  { font-size: 0.85rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 1.2rem; }
 
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
-    .project-tag {
+    .tag-chip {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
-      letter-spacing: 0.06em;
-      padding: 0.2rem 0.6rem;
+      padding: 0.18rem 0.55rem;
       background: var(--bg3);
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -109,136 +105,100 @@
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo"><div class="logo-mark">🛸</div> MCAC</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html" class="nav-cta">Join Us</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MCAC</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rocketry/index.html">Rocketry</a></li>
+        <li><a href="contact.html" class="nav-join">Join Us</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <div class="page-header">
-    <div class="tag">What we build</div>
+  <div class="page-header reveal">
+    <div class="eyebrow">Our work</div>
     <h1>Projects</h1>
-    <p>Active builds, completed flights, and upcoming experiments across all three divisions.</p>
+    <p>Four completed projects across our rocketry and simulation divisions.</p>
   </div>
 
-  <section class="section">
+  <hr class="section-divider" />
+
+  <section class="section reveal">
     <div class="filter-bar">
       <button class="filter-btn active">All</button>
       <button class="filter-btn">🚀 Rocketry</button>
-      <button class="filter-btn">🛸 Drone / UAV</button>
-      <button class="filter-btn">🔬 Research</button>
+      <button class="filter-btn">📐 Simulation & CAD</button>
     </div>
 
     <div class="projects-grid">
 
       <div class="project-card">
-        <div class="project-image">
+        <div class="project-thumb">
           🚀
-          <span class="project-status status-active">Active</span>
-        </div>
-        <div class="project-body">
-          <div class="project-division">Rocketry</div>
-          <h3>Altitude Record Attempt — 4" Fiberglass</h3>
-          <p>A 4-inch fiberglass airframe targeting 15,000 ft on an L motor. Dual deployment with Featherweight Raven altimeter. Launch planned for Spring 2025.</p>
-          <div class="project-tags">
-            <span class="project-tag">L-motor</span>
-            <span class="project-tag">Fiberglass</span>
-            <span class="project-tag">Dual deploy</span>
-            <span class="project-tag">OpenRocket</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          🛸
-          <span class="project-status status-active">Active</span>
-        </div>
-        <div class="project-body">
-          <div class="project-division">Drone / UAV</div>
-          <h3>Autonomous Waypoint Drone</h3>
-          <p>Building a fixed-wing UAV capable of flying a pre-programmed GPS waypoint route using ArduPilot and a Pixhawk flight controller. Target range: 2km.</p>
-          <div class="project-tags">
-            <span class="project-tag">ArduPilot</span>
-            <span class="project-tag">Pixhawk</span>
-            <span class="project-tag">Fixed-wing</span>
-            <span class="project-tag">GPS</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          🔬
-          <span class="project-status status-active">Active</span>
-        </div>
-        <div class="project-body">
-          <div class="project-division">Research</div>
-          <h3>Atmospheric Payload — CanSat</h3>
-          <p>A soda-can-sized payload measuring temperature, pressure, humidity, and UV index during rocket flights. Data logged to SD card and transmitted live via LoRa radio.</p>
-          <div class="project-tags">
-            <span class="project-tag">CanSat</span>
-            <span class="project-tag">Arduino</span>
-            <span class="project-tag">LoRa</span>
-            <span class="project-tag">Sensors</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          🏁
           <span class="project-status status-complete">Complete</span>
         </div>
         <div class="project-body">
           <div class="project-division">Rocketry</div>
-          <h3>L1 Certification Rocket — "Mustang"</h3>
-          <p>Our club's first successful L1 certification flight. 3" diameter phenolic airframe, H238 motor. Successfully flown and recovered at Lucerne Dry Lake, November 2024.</p>
+          <h3>[Project Name]</h3>
+          <p>Update with your actual project description — what you built, what motor you used, how it flew, and what you learned.</p>
           <div class="project-tags">
-            <span class="project-tag">H-motor</span>
-            <span class="project-tag">Phenolic</span>
-            <span class="project-tag">NAR L1</span>
-            <span class="project-tag">Recovered</span>
+            <span class="tag-chip">TARC</span>
+            <span class="tag-chip">Airframe</span>
+            <span class="tag-chip">Recovery</span>
           </div>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-image">
-          🤖
-          <span class="project-status status-planning">Planning</span>
+        <div class="project-thumb">
+          🚀
+          <span class="project-status status-complete">Complete</span>
         </div>
         <div class="project-body">
-          <div class="project-division">Drone / UAV</div>
-          <h3>Computer Vision Target Tracker</h3>
-          <p>A quadcopter equipped with a Raspberry Pi and camera to autonomously detect and follow a colored ground target. Uses OpenCV for real-time image processing.</p>
+          <div class="project-division">Rocketry</div>
+          <h3>[Project Name]</h3>
+          <p>Update with your actual project description — what you built, what motor you used, how it flew, and what you learned.</p>
           <div class="project-tags">
-            <span class="project-tag">OpenCV</span>
-            <span class="project-tag">Raspberry Pi</span>
-            <span class="project-tag">Quadcopter</span>
-            <span class="project-tag">Python</span>
+            <span class="tag-chip">NRC</span>
+            <span class="tag-chip">Dual deploy</span>
+            <span class="tag-chip">Electronics</span>
           </div>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-image">
-          📡
-          <span class="project-status status-planning">Planning</span>
+        <div class="project-thumb">
+          📐
+          <span class="project-status status-complete">Complete</span>
         </div>
         <div class="project-body">
-          <div class="project-division">Research</div>
-          <h3>High-Altitude Balloon Experiment</h3>
-          <p>Weather balloon payload targeting 80,000 ft. Will carry a GoPro, GPS tracker, and atmospheric sensors. Recovery via parachute and GPS coordinates.</p>
+          <div class="project-division">Simulation & CAD</div>
+          <h3>[Project Name]</h3>
+          <p>Update with your simulation project — what you modeled, what software you used, and what the results showed.</p>
           <div class="project-tags">
-            <span class="project-tag">HAB</span>
-            <span class="project-tag">GPS</span>
-            <span class="project-tag">GoPro</span>
-            <span class="project-tag">Stratosphere</span>
+            <span class="tag-chip">SimScale</span>
+            <span class="tag-chip">CFD</span>
+            <span class="tag-chip">Aerodynamics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">
+          📐
+          <span class="project-status status-complete">Complete</span>
+        </div>
+        <div class="project-body">
+          <div class="project-division">Simulation & CAD</div>
+          <h3>[Project Name]</h3>
+          <p>Update with your CAD project description — what you designed, what tools you used, and how it connected to a real build or competition entry.</p>
+          <div class="project-tags">
+            <span class="tag-chip">CAD</span>
+            <span class="tag-chip">Structural</span>
+            <span class="tag-chip">Fin design</span>
           </div>
         </div>
       </div>
@@ -248,21 +208,59 @@
 
   <footer>
     <div class="footer-inner">
-      <div>
-        <div class="footer-brand">🛸 Mira Costa Aerospace Club</div>
-        <div class="footer-tagline">Mira Costa High School · Manhattan Beach, CA</div>
+      <div class="footer-top">
+        <div class="footer-col">
+          <h5>MCAC</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Join Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Divisions</h5>
+          <ul>
+            <li><a href="rocketry/index.html">Rocketry</a></li>
+            <li><a href="projects.html">Simulation & CAD</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Work</h5>
+          <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="presentations.html">Presentations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Competitions</h5>
+          <ul>
+            <li><a href="#">TARC</a></li>
+            <li><a href="#">NRC</a></li>
+          </ul>
+        </div>
       </div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="rocketry/index.html">↳ HBRC Rocketry</a></li>
-      </ul>
+      <div class="footer-bottom">
+        <p>© 2025 Mira Costa Aerospace Club · Mira Costa High School · Manhattan Beach, CA</p>
+        <p>Partner org: Hermosa Beach Rocketry Club</p>
+      </div>
     </div>
-    <div class="footer-bottom">© 2025 Mira Costa Aerospace Club · All rights reserved</div>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>

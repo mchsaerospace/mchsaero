@@ -7,48 +7,40 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     .gallery-grid {
-      columns: 3 220px;
-      gap: 1rem;
+      columns: 3 200px;
+      gap: 10px;
     }
 
     .gallery-item {
       break-inside: avoid;
-      margin-bottom: 1rem;
-      border-radius: 10px;
+      margin-bottom: 10px;
+      border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--border);
       position: relative;
       cursor: pointer;
     }
 
-    .gallery-item:hover .overlay { opacity: 1; }
+    .gallery-item:hover .g-overlay { opacity: 1; }
 
     .g-placeholder {
-      background: var(--bg3);
+      background: var(--bg2);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      color: var(--text-dim);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
 
-    .gallery-item:nth-child(4n+1) .g-placeholder { height: 240px; }
-    .gallery-item:nth-child(4n+2) .g-placeholder { height: 180px; }
-    .gallery-item:nth-child(4n+3) .g-placeholder { height: 300px; }
-    .gallery-item:nth-child(4n)   .g-placeholder { height: 200px; }
+    .gallery-item:nth-child(5n+1) .g-placeholder { height: 240px; }
+    .gallery-item:nth-child(5n+2) .g-placeholder { height: 180px; }
+    .gallery-item:nth-child(5n+3) .g-placeholder { height: 300px; }
+    .gallery-item:nth-child(5n+4) .g-placeholder { height: 200px; }
+    .gallery-item:nth-child(5n)   .g-placeholder { height: 260px; }
 
-    .overlay {
+    .g-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(10,14,26,0.8);
+      background: rgba(0,0,0,0.75);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -57,144 +49,142 @@
       transition: opacity 0.2s;
     }
 
-    .overlay-caption { font-size: 0.85rem; margin-bottom: 0.2rem; }
-    .overlay-date {
+    .g-caption { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.2rem; }
+
+    .g-date {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
-      letter-spacing: 0.08em;
       color: var(--text-dim);
+      letter-spacing: 0.06em;
     }
 
     .upload-tip {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 0 8px 8px 0;
-      padding: 1.5rem 2rem;
-      margin-bottom: 3rem;
-      font-size: 0.88rem;
+      border-left: 3px solid var(--blue);
+      border-radius: 0 12px 12px 0;
+      padding: 1.2rem 1.6rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.85rem;
       color: var(--text-mid);
     }
 
-    .upload-tip code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 0.15rem 0.4rem;
-      border-radius: 4px;
-      color: var(--accent);
-    }
+    .upload-tip code { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; background: var(--bg3); border: 1px solid var(--border); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--blue); }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo"><div class="logo-mark">🛸</div> MCAC</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="gallery.html" class="active">Gallery</a></li>
-      <li><a href="contact.html" class="nav-cta">Join Us</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MCAC</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="rocketry/index.html">Rocketry</a></li>
+        <li><a href="contact.html" class="nav-join">Join Us</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <div class="page-header">
-    <div class="tag">Visual archive</div>
+  <div class="page-header reveal">
+    <div class="eyebrow">Visual archive</div>
     <h1>Gallery</h1>
-    <p>Launches, builds, events, and everything in between.</p>
+    <p>Launches, builds, simulations, and everything in between.</p>
   </div>
 
-  <section class="section">
+  <hr class="section-divider" />
+
+  <section class="section reveal">
     <div class="upload-tip">
-      <strong>Adding photos:</strong> Upload images to your <code>images/</code> folder on GitHub, then replace each emoji placeholder below with <code>&lt;img src="../images/photo.jpg" alt="..."&gt;</code>
+      <strong style="color:var(--text);">Adding photos:</strong> Upload images to your <code>images/</code> folder on GitHub, then replace each emoji placeholder with <code>&lt;img src="images/photo.jpg" alt="..."&gt;</code>
     </div>
 
     <div class="gallery-grid">
       <div class="gallery-item">
         <div class="g-placeholder">🚀</div>
-        <div class="overlay">
-          <div class="overlay-caption">First L1 certification flight</div>
-          <div class="overlay-date">Nov 2024 · Lucerne Dry Lake</div>
-        </div>
+        <div class="g-overlay"><div class="g-caption">Launch day</div><div class="g-date">Add date</div></div>
       </div>
       <div class="gallery-item">
-        <div class="g-placeholder">🛸</div>
-        <div class="overlay">
-          <div class="overlay-caption">Drone field test day</div>
-          <div class="overlay-date">Oct 2024 · El Camino Park</div>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <div class="g-placeholder">🔬</div>
-        <div class="overlay">
-          <div class="overlay-caption">CanSat payload assembly</div>
-          <div class="overlay-date">Jan 2025 · Club workshop</div>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <div class="g-placeholder">🏜️</div>
-        <div class="overlay">
-          <div class="overlay-caption">Launch site sunrise</div>
-          <div class="overlay-date">Mar 2025 · Lucerne Dry Lake</div>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <div class="g-placeholder">👥</div>
-        <div class="overlay">
-          <div class="overlay-caption">Club photo — Fall semester</div>
-          <div class="overlay-date">Sep 2024 · Mira Costa HS</div>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <div class="g-placeholder">🔥</div>
-        <div class="overlay">
-          <div class="overlay-caption">Ignition sequence</div>
-          <div class="overlay-date">Nov 2024 · Lucerne Dry Lake</div>
-        </div>
+        <div class="g-placeholder">📐</div>
+        <div class="g-overlay"><div class="g-caption">SimScale CFD run</div><div class="g-date">Add date</div></div>
       </div>
       <div class="gallery-item">
         <div class="g-placeholder">🛠️</div>
-        <div class="overlay">
-          <div class="overlay-caption">Build night — fin alignment</div>
-          <div class="overlay-date">Oct 2024 · Workshop</div>
-        </div>
+        <div class="g-overlay"><div class="g-caption">Build session</div><div class="g-date">Add date</div></div>
       </div>
       <div class="gallery-item">
-        <div class="g-placeholder">🌙</div>
-        <div class="overlay">
-          <div class="overlay-caption">Night launch — HBRC event</div>
-          <div class="overlay-date">Jul 2024 · Lucerne Dry Lake</div>
-        </div>
+        <div class="g-placeholder">🏜️</div>
+        <div class="g-overlay"><div class="g-caption">Lucerne Dry Lake</div><div class="g-date">Add date</div></div>
       </div>
       <div class="gallery-item">
-        <div class="g-placeholder">📡</div>
-        <div class="overlay">
-          <div class="overlay-caption">Payload radio testing</div>
-          <div class="overlay-date">Feb 2025 · Workshop</div>
-        </div>
+        <div class="g-placeholder">👥</div>
+        <div class="g-overlay"><div class="g-caption">Club photo</div><div class="g-date">Add date</div></div>
+      </div>
+      <div class="gallery-item">
+        <div class="g-placeholder">🔥</div>
+        <div class="g-overlay"><div class="g-caption">Ignition</div><div class="g-date">Add date</div></div>
+      </div>
+      <div class="gallery-item">
+        <div class="g-placeholder">💻</div>
+        <div class="g-overlay"><div class="g-caption">CAD design session</div><div class="g-date">Add date</div></div>
+      </div>
+      <div class="gallery-item">
+        <div class="g-placeholder">🏆</div>
+        <div class="g-overlay"><div class="g-caption">TARC competition</div><div class="g-date">Add date</div></div>
+      </div>
+      <div class="gallery-item">
+        <div class="g-placeholder">📊</div>
+        <div class="g-overlay"><div class="g-caption">Presentation day</div><div class="g-date">Add date</div></div>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
-      <div>
-        <div class="footer-brand">🛸 Mira Costa Aerospace Club</div>
-        <div class="footer-tagline">Mira Costa High School · Manhattan Beach, CA</div>
+      <div class="footer-top">
+        <div class="footer-col">
+          <h5>MCAC</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Join Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Divisions</h5>
+          <ul>
+            <li><a href="rocketry/index.html">Rocketry</a></li>
+            <li><a href="projects.html">Simulation & CAD</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Work</h5>
+          <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="presentations.html">Presentations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Competitions</h5>
+          <ul><li><a href="#">TARC</a></li><li><a href="#">NRC</a></li></ul>
+        </div>
       </div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="rocketry/index.html">↳ HBRC Rocketry</a></li>
-      </ul>
+      <div class="footer-bottom">
+        <p>© 2025 Mira Costa Aerospace Club · Mira Costa High School · Manhattan Beach, CA</p>
+        <p>Partner org: Hermosa Beach Rocketry Club</p>
+      </div>
     </div>
-    <div class="footer-bottom">© 2025 Mira Costa Aerospace Club · All rights reserved</div>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>

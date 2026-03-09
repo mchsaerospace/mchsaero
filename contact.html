@@ -8,17 +8,20 @@
   <style>
     .contact-layout {
       display: grid;
-      grid-template-columns: 1fr 360px;
+      grid-template-columns: 1fr 340px;
       gap: 5rem;
       align-items: start;
+      padding: 3rem 24px 5rem;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.4rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.2rem; }
 
     .form-group label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--text-dim);
     }
@@ -26,12 +29,12 @@
     .form-group input,
     .form-group select,
     .form-group textarea {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Figtree', sans-serif;
       font-size: 0.92rem;
-      padding: 0.75rem 1rem;
+      padding: 0.7rem 1rem;
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 10px;
       color: var(--text);
       outline: none;
       transition: border-color 0.15s;
@@ -41,13 +44,13 @@
 
     .form-group input:focus,
     .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea:focus { border-color: var(--blue); }
 
-    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
 
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-    .form-note { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.8rem; }
+    .form-note { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.8rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
 
     /* Sidebar */
     .sidebar {
@@ -55,41 +58,35 @@
       top: calc(var(--nav-h) + 2rem);
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 10px;
     }
 
     .info-card {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.8rem;
+      border-radius: 16px;
+      padding: 1.6rem;
     }
 
-    .info-card h4 { font-size: 0.95rem; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+    .info-card h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
 
-    .info-row { display: flex; gap: 0.8rem; margin-bottom: 1rem; align-items: flex-start; }
+    .info-row { display: flex; gap: 0.8rem; margin-bottom: 0.9rem; align-items: flex-start; }
     .info-icon { font-size: 1rem; flex-shrink: 0; }
-    .info-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.15rem; }
-    .info-value { font-size: 0.87rem; color: var(--text-mid); }
+    .info-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.15rem; }
+    .info-value { font-size: 0.85rem; color: var(--text-mid); line-height: 1.4; }
 
-    .division-pills { display: flex; flex-direction: column; gap: 0.8rem; }
+    .faq-item { margin-bottom: 0.9rem; }
+    .faq-item h5 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.2rem; letter-spacing: -0.01em; }
+    .faq-item p  { font-size: 0.8rem; color: var(--text-mid); line-height: 1.5; }
 
-    .division-pill {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .division-pill-icon { font-size: 1.2rem; }
-
-    .division-pill-text h5 { font-size: 0.88rem; margin-bottom: 0.1rem; }
-    .division-pill-text p { font-size: 0.78rem; color: var(--text-dim); }
-
-    @media (max-width: 860px) {
+    @media (max-width: 760px) {
       .contact-layout { grid-template-columns: 1fr; }
       .sidebar { position: static; }
       .form-row { grid-template-columns: 1fr; }
@@ -99,166 +96,182 @@
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo"><div class="logo-mark">🛸</div> MCAC</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html" class="active nav-cta">Join Us</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MCAC</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rocketry/index.html">Rocketry</a></li>
+        <li><a href="contact.html" class="active nav-join">Join Us</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <div class="page-header">
-    <div class="tag">Get involved</div>
+  <div class="page-header reveal">
+    <div class="eyebrow">Get involved</div>
     <h1>Join MCAC</h1>
-    <p>Open to all Mira Costa students. No experience required — just enthusiasm.</p>
+    <p>Open to all Mira Costa students. No experience required.</p>
   </div>
 
-  <section class="section">
-    <div class="contact-layout">
+  <hr class="section-divider" />
 
-      <div>
-        <div class="tag">Membership form</div>
-        <h2 class="section-title">Express interest</h2>
-        <p class="section-sub">Fill this out and we'll reach out before the next meeting.</p>
+  <div class="contact-layout reveal">
 
-        <!--
-          To make this form send emails: sign up at formspree.io (free),
-          create a form, and replace YOUR_FORM_ID below with your actual ID.
-        -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <!-- FORM -->
+    <div>
+      <div class="eyebrow" style="margin-bottom:0.6rem;">Membership form</div>
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Express interest</h2>
+      <p style="font-size:0.92rem; color:var(--text-mid); margin-bottom:2rem; letter-spacing:-0.01em;">Fill this out and we'll reach out before the next meeting.</p>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label>First name *</label>
-              <input type="text" name="first_name" required placeholder="Alex" />
-            </div>
-            <div class="form-group">
-              <label>Last name *</label>
-              <input type="text" name="last_name" required placeholder="Johnson" />
-            </div>
-          </div>
+      <!--
+        Sign up at formspree.io (free) and replace YOUR_FORM_ID with your actual ID.
+      -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 
+        <div class="form-row">
           <div class="form-group">
-            <label>School email *</label>
-            <input type="email" name="email" required placeholder="ajohnson25@student.hbuhsd.edu" />
+            <label>First name *</label>
+            <input type="text" name="first_name" required placeholder="Alex" />
           </div>
-
           <div class="form-group">
-            <label>Grade</label>
-            <select name="grade">
-              <option value="">Select…</option>
-              <option>9th grade (Freshman)</option>
-              <option>10th grade (Sophomore)</option>
-              <option>11th grade (Junior)</option>
-              <option>12th grade (Senior)</option>
-            </select>
+            <label>Last name *</label>
+            <input type="text" name="last_name" required placeholder="Johnson" />
           </div>
+        </div>
 
-          <div class="form-group">
-            <label>Which division interests you most?</label>
-            <select name="division">
-              <option value="">Select…</option>
-              <option>🚀 Rocketry</option>
-              <option>🛸 Drone / UAV</option>
-              <option>🔬 Research & Science</option>
-              <option>All of them!</option>
-            </select>
+        <div class="form-group">
+          <label>School email *</label>
+          <input type="email" name="email" required placeholder="ajohnson25@student.hbuhsd.edu" />
+        </div>
+
+        <div class="form-group">
+          <label>Grade</label>
+          <select name="grade">
+            <option value="">Select…</option>
+            <option>9th — Freshman</option>
+            <option>10th — Sophomore</option>
+            <option>11th — Junior</option>
+            <option>12th — Senior</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Which division interests you?</label>
+          <select name="division">
+            <option value="">Select…</option>
+            <option>🚀 Rocketry</option>
+            <option>📐 Simulation & CAD</option>
+            <option>Both!</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Any relevant experience? (optional)</label>
+          <textarea name="experience" placeholder="Coding, CAD, model rockets, 3D printing, anything aerospace…"></textarea>
+        </div>
+
+        <button type="submit" class="btn-filled">Send →</button>
+        <p class="form-note">// We'll reply within a day or two.</p>
+
+      </form>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="info-card">
+        <h4>📬 Contact & meetings</h4>
+        <div class="info-row">
+          <div class="info-icon">✉️</div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:mcaerospace@student.hbuhsd.edu" style="color:var(--blue);">mcaerospace@student.hbuhsd.edu</a></div>
           </div>
-
-          <div class="form-group">
-            <label>Any relevant experience? (optional)</label>
-            <textarea name="experience" placeholder="Coding, electronics, model rockets, 3D printing, anything aerospace-related…"></textarea>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📅</div>
+          <div>
+            <div class="info-label">Weekly meetings</div>
+            <div class="info-value">Every [Day] at [Time]<br>Room [###], Mira Costa HS</div>
           </div>
-
-          <button type="submit" class="btn btn-primary">Send →</button>
-          <p class="form-note">// We usually reply within a day or two. Meetings are open to anyone — no form required.</p>
-
-        </form>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">School address</div>
+            <div class="info-value">1401 Artesia Blvd<br>Manhattan Beach, CA 90266</div>
+          </div>
+        </div>
       </div>
 
-      <aside class="sidebar">
-        <div class="info-card">
-          <h4>📬 Contact & meetings</h4>
-          <div class="info-row">
-            <div class="info-icon">✉️</div>
-            <div>
-              <div class="info-label">Email</div>
-              <div class="info-value"><a href="mailto:aerospace@miracosta.edu" style="color:var(--accent);">aerospace@miracosta.edu</a></div>
-            </div>
-          </div>
-          <div class="info-row">
-            <div class="info-icon">📅</div>
-            <div>
-              <div class="info-label">Weekly meetings</div>
-              <div class="info-value">Every [Day] at [Time]<br>Room [###], Mira Costa HS</div>
-            </div>
-          </div>
-          <div class="info-row">
-            <div class="info-icon">📍</div>
-            <div>
-              <div class="info-label">School address</div>
-              <div class="info-value">1401 Artesia Blvd<br>Manhattan Beach, CA 90266</div>
-            </div>
-          </div>
+      <div class="info-card">
+        <h4>❓ FAQ</h4>
+        <div class="faq-item">
+          <h5>Do I need experience?</h5>
+          <p>Nope. We teach everything — rocket construction, OpenRocket, SimScale, CAD — from scratch.</p>
         </div>
-
-        <div class="info-card">
-          <h4>🚀 Our divisions</h4>
-          <div class="division-pills">
-            <div class="division-pill">
-              <div class="division-pill-icon">🚀</div>
-              <div class="division-pill-text">
-                <h5>Rocketry</h5>
-                <p>Build & launch with HBRC</p>
-              </div>
-            </div>
-            <div class="division-pill">
-              <div class="division-pill-icon">🛸</div>
-              <div class="division-pill-text">
-                <h5>Drone / UAV</h5>
-                <p>Autonomous flight systems</p>
-              </div>
-            </div>
-            <div class="division-pill">
-              <div class="division-pill-icon">🔬</div>
-              <div class="division-pill-text">
-                <h5>Research</h5>
-                <p>Payloads & data science</p>
-              </div>
-            </div>
-          </div>
+        <div class="faq-item">
+          <h5>Is there a cost?</h5>
+          <p>Membership is free. Some launch trips may have a small fee for transport and range fees.</p>
         </div>
-
-        <div class="info-card">
-          <h4>❓ FAQ</h4>
-          <p style="font-size:0.85rem; color:var(--text-mid); margin-bottom:0.8rem;"><strong style="color:var(--text);">Do I need experience?</strong><br>Nope. We teach everything from scratch.</p>
-          <p style="font-size:0.85rem; color:var(--text-mid); margin-bottom:0.8rem;"><strong style="color:var(--text);">Is there a cost?</strong><br>Club membership is free. Some launch trips have a small fee for fuel/transport.</p>
-          <p style="font-size:0.85rem; color:var(--text-mid);"><strong style="color:var(--text);">Can I join mid-year?</strong><br>Absolutely — we welcome new members any time.</p>
+        <div class="faq-item">
+          <h5>What competitions do you enter?</h5>
+          <p>TARC (Team America Rocketry Challenge) and NRC (National Rocketry Competition).</p>
         </div>
-      </aside>
+        <div class="faq-item">
+          <h5>Can I join mid-year?</h5>
+          <p>Yes — new members are welcome any time during the school year.</p>
+        </div>
+      </div>
+    </aside>
 
-    </div>
-  </section>
+  </div>
 
   <footer>
     <div class="footer-inner">
-      <div>
-        <div class="footer-brand">🛸 Mira Costa Aerospace Club</div>
-        <div class="footer-tagline">Mira Costa High School · Manhattan Beach, CA</div>
+      <div class="footer-top">
+        <div class="footer-col">
+          <h5>MCAC</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Join Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Divisions</h5>
+          <ul>
+            <li><a href="rocketry/index.html">Rocketry</a></li>
+            <li><a href="projects.html">Simulation & CAD</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Work</h5>
+          <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="presentations.html">Presentations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Competitions</h5>
+          <ul><li><a href="#">TARC</a></li><li><a href="#">NRC</a></li></ul>
+        </div>
       </div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="rocketry/index.html">↳ HBRC Rocketry</a></li>
-      </ul>
+      <div class="footer-bottom">
+        <p>© 2025 Mira Costa Aerospace Club · Mira Costa High School · Manhattan Beach, CA</p>
+        <p>Partner org: Hermosa Beach Rocketry Club</p>
+      </div>
     </div>
-    <div class="footer-bottom">© 2025 Mira Costa Aerospace Club · All rights reserved</div>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>

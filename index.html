@@ -6,454 +6,406 @@
   <title>Mira Costa Aerospace Club</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── Star field ── */
+    /* ── Hero ── */
     .hero {
-      min-height: calc(100vh - 68px);
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
-      padding: 6rem 5%;
+      text-align: center;
+      padding: calc(var(--nav-h) + 5rem) 24px 6rem;
       position: relative;
       overflow: hidden;
     }
 
-    .stars {
+    .hero::before {
+      content: '';
       position: absolute;
-      inset: 0;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(41,151,255,0.1) 0%, transparent 65%);
       pointer-events: none;
     }
-
-    .star {
-      position: absolute;
-      background: #fff;
-      border-radius: 50%;
-      animation: twinkle var(--d, 3s) ease-in-out infinite var(--delay, 0s);
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: var(--min-op, 0.2); }
-      50% { opacity: var(--max-op, 0.8); }
-    }
-
-    .glow-orb {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(80px);
-    }
-
-    .orb-1 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(79,142,247,0.15), transparent 70%);
-      top: -200px; right: -100px;
-    }
-
-    .orb-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(124,58,237,0.12), transparent 70%);
-      bottom: -100px; left: 10%;
-    }
-
-    .hero-content { position: relative; z-index: 1; max-width: 760px; }
 
     .hero-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      width: 2rem;
-      height: 1px;
-      background: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.1s forwards;
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 1;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 .gradient-text {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-desc {
-      font-size: 1.1rem;
-      color: var(--text-mid);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
-    }
-
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      animation: bounce 2s ease-in-out infinite;
-    }
-
-    .hero-scroll::after {
-      content: '';
-      width: 1px;
-      height: 30px;
-      background: linear-gradient(to bottom, var(--text-dim), transparent);
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(6px); }
-    }
-
-    /* ── Stats ── */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .stat {
-      padding: 2.5rem 5%;
-      border-right: 1px solid var(--border);
-    }
-
-    .stat:last-child { border-right: none; }
-
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.5rem;
+      font-size: clamp(3.8rem, 10vw, 7.5rem);
       font-weight: 800;
-      background: linear-gradient(135deg, var(--text), var(--text-mid));
+      letter-spacing: -0.05em;
+      line-height: 0.98;
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.2s forwards;
+      background: linear-gradient(175deg, #ffffff 0%, #999 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      line-height: 1;
-      margin-bottom: 0.3rem;
     }
 
-    .stat-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dim);
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.55;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.01em;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.3s forwards;
     }
 
-    /* ── Divisions ── */
-    .divisions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .division-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.2s, transform 0.2s;
+    .hero-actions {
       display: flex;
-      flex-direction: column;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.4s forwards;
     }
 
-    .division-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--card-color, var(--accent));
-    }
-
-    .division-card:hover { border-color: var(--border2); transform: translateY(-3px); }
-
-    .division-icon { font-size: 2rem; margin-bottom: 1.2rem; }
-    .division-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
-    .division-card p { color: var(--text-mid); font-size: 0.9rem; flex: 1; margin-bottom: 1.5rem; }
-
-    .division-link {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent);
-      display: flex;
+    /* ── Competitions badge ── */
+    .comp-badge {
+      display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      transition: gap 0.15s;
+      gap: 0.6rem;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 980px;
+      padding: 0.4rem 1rem 0.4rem 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.15s forwards;
     }
 
-    .division-link:hover { gap: 0.7rem; }
+    .comp-badge span {
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 980px;
+    }
 
-    /* ── Mission strip ── */
-    .mission {
-      background: var(--bg3);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 5rem 5%;
+    /* ── Feature rows ── */
+    .feature-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: center;
+      padding: 5rem 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
     }
 
-    .mission h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 1rem; }
-    .mission p { color: var(--text-mid); margin-bottom: 1rem; }
+    .feature-row.flip { direction: rtl; }
+    .feature-row.flip > * { direction: ltr; }
 
-    .mission-points { display: flex; flex-direction: column; gap: 1.2rem; }
+    .feature-text .eyebrow { margin-bottom: 0.7rem; }
 
-    .mission-point {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
+    .feature-text h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
 
-    .mission-point-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--bg);
+    .feature-text p {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-visual {
+      background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 18px;
+      aspect-ratio: 4/3;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .mission-point h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
-    .mission-point p { font-size: 0.85rem; color: var(--text-mid); margin: 0; }
-
-    /* ── CTA ── */
-    .cta {
-      padding: 6rem 5%;
-      text-align: center;
+      font-size: 5rem;
+      gap: 0.8rem;
       position: relative;
       overflow: hidden;
     }
 
-    .cta::before {
+    .feature-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 40%, rgba(41,151,255,0.05), transparent 65%);
+    }
+
+    .feature-visual p {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 8rem 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
       content: '';
       position: absolute;
       top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px; height: 300px;
-      background: radial-gradient(ellipse, rgba(79,142,247,0.08), transparent 70%);
+      transform: translate(-50%,-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(41,151,255,0.07), transparent 70%);
       pointer-events: none;
     }
 
-    .cta h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
-    .cta p { color: var(--text-mid); max-width: 480px; margin: 0 auto 2rem; }
-    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    @media (max-width: 900px) {
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-      .divisions-grid { grid-template-columns: 1fr 1fr; }
-      .mission { grid-template-columns: 1fr; gap: 3rem; }
+    .cta-section h2 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1.02;
+      margin-bottom: 1rem;
+      background: linear-gradient(175deg, #fff 30%, #666 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    @media (max-width: 560px) {
-      .divisions-grid { grid-template-columns: 1fr; }
+    .cta-section p { font-size: 1rem; color: var(--text-mid); margin-bottom: 2rem; letter-spacing: -0.01em; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 760px) {
+      .feature-row { grid-template-columns: 1fr; gap: 2.5rem; }
+      .feature-row.flip { direction: ltr; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">
-      <div class="logo-mark">🛸</div>
-      MCAC
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html" class="nav-cta">Join Us</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MCAC</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rocketry/index.html">Rocketry</a></li>
+        <li><a href="contact.html" class="nav-join">Join Us</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="stars" id="stars"></div>
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-
-    <div class="hero-content">
-      <div class="hero-eyebrow">Mira Costa High School · Manhattan Beach, CA</div>
-      <h1>Where Students<br><span class="gradient-text">Reach Orbit.</span></h1>
-      <p class="hero-desc">
-        The Mira Costa Aerospace Club pushes the boundaries of what high school students can build, launch, and discover. Rocketry, drones, research — if it flies, we build it.
-      </p>
-      <div class="hero-actions">
-        <a href="contact.html" class="btn btn-primary">Join the club →</a>
-        <a href="projects.html" class="btn btn-outline">See our projects</a>
-      </div>
+    <div class="comp-badge">
+      <span>Competing</span>
+      TARC &amp; NRC 2025
     </div>
-
-    <div class="hero-scroll">Scroll</div>
+    <div class="hero-eyebrow">Mira Costa High School · Manhattan Beach, CA</div>
+    <h1>Build.<br>Simulate.<br>Launch.</h1>
+    <p class="hero-sub">
+      Mira Costa Aerospace Club designs and flies rockets, runs engineering simulations, and competes nationally — all while still in high school.
+    </p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-filled">Join the club</a>
+      <a href="projects.html" class="btn-link">See our projects</a>
+    </div>
   </section>
 
   <!-- STATS -->
-  <div class="stats-row">
-    <div class="stat">
-      <div class="stat-num">3</div>
+  <div class="stats-bar reveal">
+    <div class="stat-cell">
+      <div class="stat-num">60+</div>
+      <div class="stat-label">Members</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">2</div>
       <div class="stat-label">Active divisions</div>
     </div>
-    <div class="stat">
-      <div class="stat-num">40+</div>
-      <div class="stat-label">Club members</div>
+    <div class="stat-cell">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Projects completed</div>
     </div>
-    <div class="stat">
-      <div class="stat-num">12</div>
-      <div class="stat-label">Projects launched</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">10K<span style="font-size:1.2rem">ft</span></div>
-      <div class="stat-label">Altitude record</div>
+    <div class="stat-cell">
+      <div class="stat-num">2</div>
+      <div class="stat-label">National competitions</div>
     </div>
   </div>
 
-  <!-- DIVISIONS -->
-  <section class="section">
-    <div class="tag">Divisions</div>
-    <h2 class="section-title">What we work on</h2>
-    <p class="section-sub">Three active teams, one shared mission: build things that fly.</p>
+  <!-- BENTO -->
+  <div style="text-align:center; padding: 5rem 24px 2rem; max-width:700px; margin:0 auto;" class="reveal">
+    <div class="eyebrow">What we do</div>
+    <h2 class="section-title">Two divisions.<br>One mission.</h2>
+    <p style="font-size:1rem; color:var(--text-mid); letter-spacing:-0.01em;">Rocketry and simulation — real engineering, real launches, real results.</p>
+  </div>
 
-    <div class="divisions-grid">
-      <div class="division-card" style="--card-color: #f59e0b;">
-        <div class="division-icon">🚀</div>
-        <h3>Rocketry</h3>
-        <p>In partnership with the Hermosa Beach Rocketry Club, we design, build, and launch high-power rockets at Lucerne Dry Lake. Members can pursue NAR certification.</p>
-        <a href="rocketry/index.html" class="division-link">Visit HBRC page →</a>
-      </div>
-      <div class="division-card" style="--card-color: #4f8ef7;">
-        <div class="division-icon">🛸</div>
-        <h3>Drone & UAV</h3>
-        <p>From FPV racing quads to autonomous fixed-wing platforms, our drone team explores aerial robotics, computer vision, and autonomous navigation systems.</p>
-        <a href="projects.html" class="division-link">See projects →</a>
-      </div>
-      <div class="division-card" style="--card-color: #22c55e;">
-        <div class="division-icon">🔬</div>
-        <h3>Research & Science</h3>
-        <p>Payload experiments, atmospheric data collection, and STEM outreach. Our research team documents every flight and presents findings at regional science fairs.</p>
-        <a href="projects.html" class="division-link">See projects →</a>
-      </div>
+  <div class="bento reveal">
+    <div class="bento-card col-7" style="background: linear-gradient(135deg, #111 0%, #0a1628 100%);">
+      <div class="card-eyebrow">Rocketry Division</div>
+      <h3>We design and launch high-power rockets.</h3>
+      <p>Build airframes, wire electronics, and fly at Lucerne Dry Lake with the Hermosa Beach Rocketry Club. TARC and NRC competition team.</p>
+      <a href="rocketry/index.html" class="btn-link-sm" style="margin-top:1.2rem; display:inline-flex;">Explore rocketry</a>
+      <div class="big-icon">🚀</div>
     </div>
-  </section>
 
-  <!-- MISSION -->
-  <div class="mission">
-    <div>
-      <div class="tag">Our mission</div>
-      <h2>Engineering meets adventure at 10,000 feet</h2>
-      <p>We're not just a club — we're a launchpad. Every student who joins MCAC leaves with real engineering experience, hands-on build skills, and a network of mentors from the aerospace industry.</p>
-      <a href="about.html" class="btn btn-outline" style="margin-top:1rem;">About the club →</a>
+    <div class="bento-card col-5" style="background: linear-gradient(135deg, #111 0%, #0d1a0d 100%);">
+      <div class="card-eyebrow">Simulation & CAD</div>
+      <h3>SimScale. CAD.<br>Real engineering tools.</h3>
+      <p>We run full CFD simulations in SimScale and design in CAD before anything gets built.</p>
+      <div class="big-icon">📐</div>
     </div>
-    <div class="mission-points">
-      <div class="mission-point">
-        <div class="mission-point-icon">🛠️</div>
-        <div>
-          <h4>Build real things</h4>
-          <p>No simulations. We build rockets, drones, and payloads from scratch using real engineering tools.</p>
-        </div>
-      </div>
-      <div class="mission-point">
-        <div class="mission-point-icon">📐</div>
-        <div>
-          <h4>Learn by doing</h4>
-          <p>CAD, OpenRocket, flight software, electronics — skills you'll use in college and beyond.</p>
-        </div>
-      </div>
-      <div class="mission-point">
-        <div class="mission-point-icon">🌍</div>
-        <div>
-          <h4>Give back</h4>
-          <p>We run intro rocketry workshops for younger students and local scout troops throughout the year.</p>
-        </div>
-      </div>
-      <div class="mission-point">
-        <div class="mission-point-icon">🏆</div>
-        <div>
-          <h4>Compete</h4>
-          <p>We enter regional and national competitions including TARC, AeroPac, and science olympiad events.</p>
-        </div>
-      </div>
+
+    <div class="bento-card col-5" style="background:var(--bg3);">
+      <div class="card-eyebrow">Competitions</div>
+      <h3>TARC &amp; NRC.</h3>
+      <p>We enter the Team America Rocketry Challenge and the National Rocketry Competition every year.</p>
+      <div class="big-icon">🏆</div>
+    </div>
+
+    <div class="bento-card col-7" style="background:var(--bg2);">
+      <div class="card-eyebrow">Open to all Mira Costa students</div>
+      <h3>No experience needed.<br>Just show up.</h3>
+      <p>We teach everything from scratch — rocket construction, OpenRocket flight simulation, SimScale CFD, and CAD design. All you need is curiosity.</p>
+      <a href="contact.html" class="btn-link-sm" style="margin-top:1.2rem; display:inline-flex;">Get involved</a>
+      <div class="big-icon" style="opacity:0.2;">✦</div>
     </div>
   </div>
+
+  <hr class="section-divider" />
+
+  <!-- FEATURE: ROCKETRY -->
+  <div class="feature-row reveal">
+    <div class="feature-text">
+      <div class="eyebrow">Rocketry</div>
+      <h2>Build rockets that actually fly.</h2>
+      <p>Members design airframes, assemble motors, wire recovery electronics, and fly at Lucerne Dry Lake. Every step — from paper design to launch day — is done by students.</p>
+      <p>We compete in TARC and NRC, two of the most prestigious high school rocketry competitions in the country.</p>
+      <a href="rocketry/index.html" class="btn-link">Rocketry division</a>
+    </div>
+    <div class="feature-visual">
+      🚀
+      <p>Add a launch photo here</p>
+    </div>
+  </div>
+
+  <!-- FEATURE: SIMULATION -->
+  <div class="feature-row flip reveal">
+    <div class="feature-text">
+      <div class="eyebrow">Simulation & CAD</div>
+      <h2>Engineer it before you build it.</h2>
+      <p>We run computational fluid dynamics (CFD) simulations in SimScale to analyze aerodynamics and structural forces before a single part is cut.</p>
+      <p>CAD modeling lets us iterate fast and catch problems early — the same workflow used in real aerospace programs.</p>
+      <a href="projects.html" class="btn-link">See our projects</a>
+    </div>
+    <div class="feature-visual">
+      📐
+      <p>Add a SimScale screenshot here</p>
+    </div>
+  </div>
+
+  <!-- FEATURE: PRESENTATIONS -->
+  <div class="feature-row reveal">
+    <div class="feature-text">
+      <div class="eyebrow">Presentations</div>
+      <h2>We document and share our work.</h2>
+      <p>Every project produces a technical presentation — covering design decisions, simulation results, and flight data. Browse our past presentations to see the depth of our work.</p>
+      <a href="presentations.html" class="btn-link">View presentations</a>
+    </div>
+    <div class="feature-visual">
+      📊
+      <p>Add a presentation preview here</p>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
 
   <!-- CTA -->
-  <section class="cta">
-    <div class="tag" style="justify-content:center;">Get involved</div>
-    <h2>Ready to build something that flies?</h2>
-    <p>No experience needed — just curiosity and a willingness to get your hands dirty. We meet every week.</p>
+  <section class="cta-section reveal">
+    <div class="eyebrow" style="margin-bottom:0.8rem;">Get involved</div>
+    <h2>Ready to build<br>something that flies?</h2>
+    <p>Open to all Mira Costa students. No experience required.</p>
     <div class="cta-actions">
-      <a href="contact.html" class="btn btn-primary">Join the club →</a>
-      <a href="gallery.html" class="btn btn-outline">See our launches</a>
+      <a href="contact.html" class="btn-filled">Join MCAC</a>
+      <a href="about.html" class="btn-link">Learn about us</a>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
-      <div>
-        <div class="footer-brand">🛸 Mira Costa Aerospace Club</div>
-        <div class="footer-tagline">Mira Costa High School · Manhattan Beach, CA</div>
+      <div class="footer-top">
+        <div class="footer-col">
+          <h5>MCAC</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Join Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Divisions</h5>
+          <ul>
+            <li><a href="rocketry/index.html">Rocketry</a></li>
+            <li><a href="projects.html">Simulation & CAD</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Work</h5>
+          <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="presentations.html">Presentations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Competitions</h5>
+          <ul>
+            <li><a href="#">TARC</a></li>
+            <li><a href="#">NRC</a></li>
+          </ul>
+        </div>
       </div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="rocketry/index.html">↳ HBRC Rocketry</a></li>
-      </ul>
-      <div>
-        <div class="mono" style="color:var(--text-dim); margin-bottom:0.5rem;">Partner org</div>
-        <div style="font-size:0.85rem; color:var(--text-mid);">Hermosa Beach Rocketry Club<br>NAR & Tripoli affiliated</div>
+      <div class="footer-bottom">
+        <p>© 2025 Mira Costa Aerospace Club · Mira Costa High School · Manhattan Beach, CA</p>
+        <p>Partner org: Hermosa Beach Rocketry Club</p>
       </div>
     </div>
-    <div class="footer-bottom">© 2025 Mira Costa Aerospace Club · All rights reserved</div>
   </footer>
 
   <script>
-    // Generate starfield
-    const container = document.getElementById('stars');
-    for (let i = 0; i < 120; i++) {
-      const s = document.createElement('div');
-      s.className = 'star';
-      const size = Math.random() * 2.5 + 0.5;
-      s.style.cssText = `
-        width:${size}px; height:${size}px;
-        top:${Math.random()*100}%; left:${Math.random()*100}%;
-        --d:${2+Math.random()*4}s;
-        --delay:-${Math.random()*5}s;
-        --min-op:${0.1+Math.random()*0.2};
-        --max-op:${0.5+Math.random()*0.5};
-      `;
-      container.appendChild(s);
-    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
 </body>

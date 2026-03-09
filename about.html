@@ -11,19 +11,28 @@
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: start;
+      padding: 4rem 24px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .about-grid p { color: var(--text-mid); margin-bottom: 1.1rem; }
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 1.1rem;
+      letter-spacing: -0.01em;
+    }
 
-    .image-block {
+    .img-block {
       position: sticky;
       top: calc(var(--nav-h) + 2rem);
     }
 
     .img-placeholder {
-      background: var(--bg3);
+      background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 18px;
       aspect-ratio: 4/5;
       display: flex;
       flex-direction: column;
@@ -32,235 +41,264 @@
       gap: 0.8rem;
       color: var(--text-dim);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-align: center;
       padding: 2rem;
-      font-size: 2rem;
+      font-size: 3rem;
     }
 
-    .img-caption {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--text-dim);
-      margin-top: 0.8rem;
-      letter-spacing: 0.06em;
-    }
+    .img-caption { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--text-dim); margin-top: 0.8rem; letter-spacing: 0.04em; }
 
-    /* ── Team ── */
-    .team-grid {
+    /* ── Values ── */
+    .values-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
     }
 
-    .team-card {
+    .value-card {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 1.8rem;
       transition: border-color 0.2s;
     }
 
-    .team-card:hover { border-color: var(--border2); }
+    .value-card:hover { border-color: var(--border2); }
 
-    .avatar {
-      width: 56px;
-      height: 56px;
+    .value-num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--bg4);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .value-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .value-card p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.55; }
+
+    /* ── Leadership ── */
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .leader-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2rem;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .leader-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+
+    .leader-avatar {
+      width: 72px;
+      height: 72px;
       background: var(--bg3);
       border: 1px solid var(--border);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      margin: 0 auto 1.2rem;
     }
 
-    .team-card h3 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .leader-card h3 { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
 
-    .team-role {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
+    .leader-role {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
+      color: var(--blue);
+      margin-bottom: 0.8rem;
     }
 
-    .team-card p { font-size: 0.82rem; color: var(--text-mid); }
+    .leader-card p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; }
 
-    /* ── Values ── */
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
+    /* President card gets a subtle highlight */
+    .leader-card.president {
+      background: linear-gradient(135deg, #111 0%, #0a1628 100%);
+      border-color: rgba(41,151,255,0.2);
     }
 
-    .value-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-    }
-
-    .value-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--border2);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .value-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-    .value-card p { font-size: 0.85rem; color: var(--text-mid); }
-
-    @media (max-width: 768px) {
+    @media (max-width: 760px) {
       .about-grid { grid-template-columns: 1fr; }
-      .image-block { position: static; }
+      .img-block { position: static; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo"><div class="logo-mark">🛸</div> MCAC</a>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html" class="nav-cta">Join Us</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MCAC</a>
+      <ul class="nav-links">
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rocketry/index.html">Rocketry</a></li>
+        <li><a href="contact.html" class="nav-join">Join Us</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <div class="page-header">
-    <div class="tag">Who we are</div>
+  <div class="page-header reveal">
+    <div class="eyebrow">Who we are</div>
     <h1>About MCAC</h1>
-    <p>A student-run aerospace club at Mira Costa High School in Manhattan Beach, CA.</p>
+    <p>A student-run aerospace club at Mira Costa High School, building rockets and running simulations since our founding.</p>
   </div>
 
-  <!-- STORY -->
-  <section class="section">
-    <div class="about-grid">
-      <div>
-        <div class="tag">Our story</div>
-        <h2 class="section-title">Built from the ground up</h2>
-        <p>
-          The Mira Costa Aerospace Club was founded by a group of students who wanted more than classroom theory — they wanted to actually build things and send them into the sky. What started as an after-school group building Estes kits has grown into one of the most active student aerospace programs in the South Bay.
-        </p>
-        <p>
-          Today MCAC has three active divisions: Rocketry (in partnership with the Hermosa Beach Rocketry Club), Drone & UAV, and Research. Every division is entirely student-led, with faculty and community mentors offering guidance.
-        </p>
-        <p>
-          We believe the best way to learn aerospace engineering is to do aerospace engineering. Every member builds something real, launches something real, and learns from both the successes and the failures — usually spectacular ones.
-        </p>
-        <a href="contact.html" class="btn btn-primary" style="margin-top:1rem;">Join us →</a>
-      </div>
+  <hr class="section-divider" />
 
-      <div class="image-block">
-        <div class="img-placeholder">
-          📷
-          <!-- Replace with: <img src="../images/club-photo.jpg" alt="MCAC members"> -->
-        </div>
-        <div class="img-caption">// Replace with a club photo or launch day image</div>
-      </div>
+  <!-- STORY + IMAGE -->
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <div class="eyebrow">Our story</div>
+      <h2 class="section-title" style="margin-bottom:1.5rem;">Built from the ground up.</h2>
+      <p>The Mira Costa Aerospace Club was founded by students who wanted to do more than read about aerospace — they wanted to build it. What started as a small group has grown into a 60+ member organization with two active divisions and a national competition presence.</p>
+      <p>Today MCAC has two divisions: Rocketry and Simulation & CAD. Every project is entirely student-led, from the initial CAD model and SimScale CFD analysis through to launch day at Lucerne Dry Lake.</p>
+      <p>We compete in TARC (Team America Rocketry Challenge) and NRC (National Rocketry Competition) — two of the most competitive high school rocketry events in the country.</p>
+      <p>Our rocketry division operates in partnership with the Hermosa Beach Rocketry Club, giving students access to experienced adult mentors, certified range safety officers, and real high-power launch days.</p>
+      <a href="contact.html" class="btn-filled" style="margin-top:0.5rem;">Join us</a>
     </div>
-  </section>
 
-  <hr>
+    <div class="img-block">
+      <div class="img-placeholder">
+        📷
+        <!-- Replace with: <img src="images/club-photo.jpg" alt="MCAC members"> -->
+      </div>
+      <div class="img-caption">// Replace with a club or launch photo</div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
 
   <!-- VALUES -->
-  <section class="section section-alt">
-    <div class="tag">What drives us</div>
+  <section class="section reveal">
+    <div class="eyebrow">What drives us</div>
     <h2 class="section-title">Our values</h2>
-    <p class="section-sub">Four principles that shape everything we build.</p>
+    <p class="section-sub">The principles behind every build, simulation, and flight.</p>
 
     <div class="values-grid">
       <div class="value-card">
         <div class="value-num">01</div>
-        <h3>Learn by doing</h3>
-        <p>No passive learning here. Every member builds, launches, and iterates from day one.</p>
+        <h3>Build real things</h3>
+        <p>No passive learning. Every member builds something real that flies — or spectacularly doesn't.</p>
       </div>
       <div class="value-card">
         <div class="value-num">02</div>
-        <h3>Fail forward</h3>
-        <p>Bad launches teach better lessons than perfect simulations. We embrace every CATO and hard landing.</p>
+        <h3>Engineer first</h3>
+        <p>We simulate before we build. SimScale CFD and CAD come before the airframe, every time.</p>
       </div>
       <div class="value-card">
         <div class="value-num">03</div>
-        <h3>Collaborate</h3>
-        <p>Aerospace is a team sport. We mentor each other, share knowledge, and celebrate wins together.</p>
+        <h3>Compete seriously</h3>
+        <p>TARC and NRC demand precision. We hold ourselves to competition standards on every project.</p>
       </div>
       <div class="value-card">
         <div class="value-num">04</div>
-        <h3>Give back</h3>
-        <p>We run youth workshops and outreach events so the next generation catches the aerospace bug too.</p>
+        <h3>Teach each other</h3>
+        <p>Senior members mentor new ones. Knowledge compounds — every person who learns becomes someone who teaches.</p>
       </div>
     </div>
   </section>
 
-  <hr>
+  <hr class="section-divider" />
 
-  <!-- TEAM -->
-  <section class="section">
-    <div class="tag">Leadership</div>
+  <!-- LEADERSHIP -->
+  <section class="section reveal">
+    <div class="eyebrow">Leadership</div>
     <h2 class="section-title">Club officers</h2>
-    <p class="section-sub">Student-led, faculty-advised. Update these with your actual officers.</p>
+    <p class="section-sub">Student-led, faculty-advised. Update these names with your actual officers.</p>
 
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="avatar">👤</div>
-        <h3>Alex Johnson</h3>
-        <div class="team-role">President</div>
-        <p>Senior. Rocketry division lead, NAR Level 1 certified. Applying to Caltech.</p>
+    <div class="leadership-grid">
+      <div class="leader-card president">
+        <div class="leader-avatar">👤</div>
+        <h3>[President Name]</h3>
+        <div class="leader-role">President</div>
+        <p>Update with your president's name, grade, and a one-liner about their role or interests.</p>
       </div>
-      <div class="team-card">
-        <div class="avatar">👤</div>
-        <h3>Maya Patel</h3>
-        <div class="team-role">VP, Drone Division</div>
-        <p>Junior. FPV pilot and Python developer. Leads the autonomous navigation sub-team.</p>
+
+      <div class="leader-card">
+        <div class="leader-avatar">👤</div>
+        <h3>[VP Name]</h3>
+        <div class="leader-role">Vice President</div>
+        <p>Update with your first VP's name, grade, and what division or area they oversee.</p>
       </div>
-      <div class="team-card">
-        <div class="avatar">👤</div>
-        <h3>Tyler Nguyen</h3>
-        <div class="team-role">VP, Research</div>
-        <p>Junior. Manages payload experiments and data analysis for all flight programs.</p>
+
+      <div class="leader-card">
+        <div class="leader-avatar">👤</div>
+        <h3>[VP Name]</h3>
+        <div class="leader-role">Vice President</div>
+        <p>Update with your second VP's name, grade, and what division or area they oversee.</p>
       </div>
-      <div class="team-card">
-        <div class="avatar">👤</div>
-        <h3>Sofia Reyes</h3>
-        <div class="team-role">Secretary / Outreach</div>
-        <p>Sophomore. Coordinates youth workshops, social media, and club communications.</p>
-      </div>
-      <div class="team-card">
-        <div class="avatar">🎓</div>
-        <h3>Mr. [Advisor Name]</h3>
-        <div class="team-role">Faculty Advisor</div>
-        <p>Physics teacher at Mira Costa. Provides guidance and school liaison support.</p>
+
+      <div class="leader-card">
+        <div class="leader-avatar">👤</div>
+        <h3>[Treasurer Name]</h3>
+        <div class="leader-role">Treasurer</div>
+        <p>Update with your treasurer's name, grade, and responsibilities.</p>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
-      <div>
-        <div class="footer-brand">🛸 Mira Costa Aerospace Club</div>
-        <div class="footer-tagline">Mira Costa High School · Manhattan Beach, CA</div>
+      <div class="footer-top">
+        <div class="footer-col">
+          <h5>MCAC</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Join Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Divisions</h5>
+          <ul>
+            <li><a href="rocketry/index.html">Rocketry</a></li>
+            <li><a href="projects.html">Simulation & CAD</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Work</h5>
+          <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="presentations.html">Presentations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Competitions</h5>
+          <ul>
+            <li><a href="#">TARC</a></li>
+            <li><a href="#">NRC</a></li>
+          </ul>
+        </div>
       </div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="rocketry/index.html">↳ HBRC Rocketry</a></li>
-      </ul>
+      <div class="footer-bottom">
+        <p>© 2025 Mira Costa Aerospace Club · Mira Costa High School · Manhattan Beach, CA</p>
+        <p>Partner org: Hermosa Beach Rocketry Club</p>
+      </div>
     </div>
-    <div class="footer-bottom">© 2025 Mira Costa Aerospace Club · All rights reserved</div>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>

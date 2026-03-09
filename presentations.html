@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentations — Mira Costa Aerospace Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .upload-tip {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 12px 12px 0;
+      padding: 1.4rem 1.8rem;
+      margin-bottom: 3rem;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .upload-tip code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 0.12rem 0.4rem;
+      border-radius: 4px;
+      color: var(--blue);
+    }
+
+    .upload-tip strong { color: var(--text); }
+
+    /* ── Presentations grid ── */
+    .pres-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 10px;
+    }
+
+    .pres-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pres-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+
+    .pres-thumb {
+      background: var(--bg3);
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    /* If you have a PDF preview image, replace the emoji with an img tag */
+    .pres-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .pres-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pres-division {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.4rem;
+    }
+
+    .pres-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .pres-card p {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .pres-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .pres-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .pres-download {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      transition: opacity 0.15s;
+    }
+
+    .pres-download:hover { opacity: 0.7; }
+    .pres-download::after { content: ' ↓'; }
+
+    /* ── How to add presentations instructions ── */
+    .how-to {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .how-to h3 { font-size: 1rem; font-weight: 700; margin-bottom: 1.2rem; letter-spacing: -0.02em; }
+
+    .steps { display: flex; flex-direction: column; gap: 1rem; }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--blue);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .step p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
+    .step p code { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; background: var(--bg3); border: 1px solid var(--border); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--blue); }
+    .step p strong { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MCAC</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="presentations.html" class="active">Presentations</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rocketry/index.html">Rocketry</a></li>
+        <li><a href="contact.html" class="nav-join">Join Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header reveal">
+    <div class="eyebrow">Technical work</div>
+    <h1>Presentations</h1>
+    <p>Browse past technical presentations from our rocketry and simulation projects.</p>
+  </div>
+
+  <hr class="section-divider" />
+
+  <section class="section reveal">
+
+    <!-- HOW TO ADD PRESENTATIONS -->
+    <div class="how-to">
+      <h3>📎 How to add a presentation</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <p><strong>Export your presentation as a PDF</strong> — from Google Slides, PowerPoint, or Keynote. PDF works best for web display.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p><strong>Upload it to GitHub</strong> — create a <code>presentations/</code> folder in your repo and upload the PDF there (e.g. <code>presentations/tarc-2025.pdf</code>).</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p><strong>Copy one of the cards below</strong> and update the title, description, date, and the <code>href</code> on the download link to point to your file path (e.g. <code>href="presentations/tarc-2025.pdf"</code>).</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <p><strong>Optional:</strong> Take a screenshot of your first slide and save it as <code>images/pres-tarc-2025.jpg</code>, then replace the emoji in <code>.pres-thumb</code> with an <code>&lt;img&gt;</code> tag for a real preview.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRESENTATIONS GRID -->
+    <div class="pres-grid">
+
+      <div class="pres-card">
+        <div class="pres-thumb">
+          📊
+          <!-- Replace with: <img src="images/pres-preview-1.jpg" alt="Presentation preview"> -->
+        </div>
+        <div class="pres-body">
+          <div class="pres-division">Rocketry</div>
+          <h3>[Presentation Title]</h3>
+          <p>Update with a brief description — what competition or project this covers, and the key findings or results.</p>
+          <div class="pres-meta">
+            <span class="pres-date">[Month Year]</span>
+            <!-- Update href to actual file path once uploaded -->
+            <a href="presentations/your-file.pdf" class="pres-download" target="_blank">Download PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-thumb">📊</div>
+        <div class="pres-body">
+          <div class="pres-division">Rocketry</div>
+          <h3>[Presentation Title]</h3>
+          <p>Update with a brief description of this presentation's content and what it covers.</p>
+          <div class="pres-meta">
+            <span class="pres-date">[Month Year]</span>
+            <a href="presentations/your-file.pdf" class="pres-download" target="_blank">Download PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-thumb">📊</div>
+        <div class="pres-body">
+          <div class="pres-division">Simulation & CAD</div>
+          <h3>[Presentation Title]</h3>
+          <p>Update with your simulation or CAD presentation details — what was modeled, what tools were used, what results were found.</p>
+          <div class="pres-meta">
+            <span class="pres-date">[Month Year]</span>
+            <a href="presentations/your-file.pdf" class="pres-download" target="_blank">Download PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-thumb">📊</div>
+        <div class="pres-body">
+          <div class="pres-division">Simulation & CAD</div>
+          <h3>[Presentation Title]</h3>
+          <p>Update with your fourth presentation's details and a brief summary of the work it documents.</p>
+          <div class="pres-meta">
+            <span class="pres-date">[Month Year]</span>
+            <a href="presentations/your-file.pdf" class="pres-download" target="_blank">Download PDF</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h5>MCAC</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Join Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Divisions</h5>
+          <ul>
+            <li><a href="rocketry/index.html">Rocketry</a></li>
+            <li><a href="projects.html">Simulation & CAD</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Work</h5>
+          <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="presentations.html">Presentations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Competitions</h5>
+          <ul>
+            <li><a href="#">TARC</a></li>
+            <li><a href="#">NRC</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Mira Costa Aerospace Club · Mira Costa High School · Manhattan Beach, CA</p>
+        <p>Partner org: Hermosa Beach Rocketry Club</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
